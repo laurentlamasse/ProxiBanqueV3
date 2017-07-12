@@ -178,6 +178,13 @@
 			on features you want to use like Hibernate Session used in the quickstart -->
 		<!--please note that scope is provided as these jars are shipped with wildfly -->
 
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  * La classe Employe herite de la classe Humain. Elle possede, en plus des
@@ -16,6 +17,7 @@ import javax.persistence.Id;
  */
 
 @Entity
+@NamedQuery(name = "Employe.login", query = "select e from Employe e where e.login LIKE :login AND e.mdp LIKE :mdp")
 public abstract class Employe {
 
 	// PROPRIETES
