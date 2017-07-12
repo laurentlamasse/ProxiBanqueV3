@@ -1,49 +1,40 @@
 package fr.gtm.proxibanquev3.presentation;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import fr.gtm.proxibanquev3.domaine.Client;
 import fr.gtm.proxibanquev3.domaine.CompteCourant;
-import fr.gtm.proxibanquev3.service.CompteCourantService;
+import fr.gtm.proxibanquev3.service.interfaces.IClientService;
+import fr.gtm.proxibanquev3.service.interfaces.ICompteCourantService;
 
 @Named
-public class CompteCourantBean implements Serializable{
-	
+public class CompteCourantBean {
+
 	@Inject
-	private CompteCourantService service;
-	CompteCourant compteCourant;
-	
+	private ICompteCourantService service;
+	private List<CompteCourant> listeCompteCourant;
+
 	@PostConstruct
-	public void init(){
-		compteCourant= new CompteCourant();
+	public void init() {
+		service.save(new CompteCourant(54000, 1500, 8));
+		service.save(new CompteCourant(582000, 2500, 4));
+		service.save(new CompteCourant(1000, 1000, 2));
+		service.save(new CompteCourant(4500, 3000, 7));
+		
+		listeCompteCourant = service.findAll();
 	}
 	
-	public void creer(){
-		service.ajouterCompte(compteCourant);
-	}
-	
-	public void supprimer(){
-		service.supprimerCompte(compteCourant);
+	//ACCESSEURS ET MUTATEURS
+	public List<CompteCourant> getListeCompteCourant() {
+		return listeCompteCourant;
 	}
 
-	public void modifier() {
-		service.modifierCompte(compteCourant);
-	}
-	
-	public void lire() {
-		service.obtenirCompte(compteCourant);
-	}
-
-	//getters setters
-	public CompteCourant getCompteCourant() {
-		return compteCourant;
-	}
-
-	public void setCompteCourant(CompteCourant compteCourant) {
-		this.compteCourant = compteCourant;
-	}
-	
+	public void setListeCompteCourant(List<CompteCourant> listeCompteCourant) {
+		this.listeCompteCourant = listeCompteCourant;
+	}		
 }

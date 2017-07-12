@@ -33,6 +33,11 @@ public class Compte {
 	public Compte() {
 
 	}
+	
+	public Compte(float solde, int numeroClient) {
+		this.solde = solde;
+		this.numeroClient = numeroClient;
+	}
 
 	public Compte(int numeroCompte, float solde, int numeroClient) {
 		this.numeroCompte = numeroCompte;

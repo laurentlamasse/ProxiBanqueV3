@@ -25,6 +25,11 @@ public class CompteCourant extends Compte {
 	public CompteCourant() {
 
 	}
+	
+	public CompteCourant(float solde, int decouvert, int numeroClient) {
+		super(solde, numeroClient);
+		this.decouvert = decouvert;
+	}
 
 	public CompteCourant(int numeroCompte, float solde, int decouvert, int numeroClient) {
 		super(numeroCompte, solde, numeroClient);
