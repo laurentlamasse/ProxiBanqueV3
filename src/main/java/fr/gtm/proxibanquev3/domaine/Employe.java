@@ -1,9 +1,13 @@
 package fr.gtm.proxibanquev3.domaine;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.NamedQuery;
 
 /**
@@ -16,12 +20,14 @@ import javax.persistence.NamedQuery;
  *            un String
  */
 
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="poste", discriminatorType=DiscriminatorType.STRING)
 @Entity
-@NamedQuery(name = "Employe.login", query = "select e from Employe e where e.login LIKE :login AND e.mdp LIKE :mdp")
 public abstract class Employe {
 
 	// PROPRIETES
 	private String login, mdp, nom, prenom;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -31,12 +37,11 @@ public abstract class Employe {
 
 	}
 
-	public Employe(String nom, String prenom, Integer id, String login, String mdp) {
+	public Employe(String nom, String prenom, String login, String mdp) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.login = login;
 		this.mdp = mdp;
-		this.id = id;
 	}
 
 	// ACCESSEURS ET MUTATEURS
@@ -79,5 +84,4 @@ public abstract class Employe {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-
 }

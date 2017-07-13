@@ -7,6 +7,9 @@
 		<class>fr.gtm.proxibanquev3.domaine.Client</class>
 		<class>fr.gtm.proxibanquev3.domaine.Compte</class>
 		<class>fr.gtm.proxibanquev3.domaine.CompteCourant</class>
+		<class>fr.gtm.proxibanquev3.domaine.Employe</class>
+		<class>fr.gtm.proxibanquev3.domaine.Conseiller</class>
+		<class>fr.gtm.proxibanquev3.domaine.Gerant</class>
 		<properties>
 			<property name="hibernate.archive.autodetection" value="class" />
 			<!-- rajout d'éléments pour la visualisation des requêtes sql -->

@@ -12,6 +12,29 @@
 <title>Insert title here</title>
 </head>
 <h:body>
-	<a href="clients.xhtml">lien</a>
+	<ui:composition template="template/layout.xhtml">
+		<ui:define name="content">
+
+			<a href="clients.xhtml">lien</a>
+
+			<h:form>
+				<h:outputText value="Username" />
+				<h:inputText id="username" value="#{loginBean.login}"></h:inputText>
+				<h:message for="username"></h:message>
+				<br></br>
+				<br></br>
+
+				<h:outputText value="Password" />
+				<h:inputSecret id="password" value="#{loginBean.mdp}"></h:inputSecret>
+				<h:message for="password"></h:message>
+				<br></br>
+				<br></br>
+
+				<h:commandButton action="#{loginBean.connecter}"
+					value="Connecter"></h:commandButton>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

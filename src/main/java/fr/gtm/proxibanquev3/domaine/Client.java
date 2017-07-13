@@ -22,7 +22,7 @@ import javax.persistence.Table;
  * @author Bilal HALABI et Laurent LAMASSE
  */
 @Entity
-@NamedQuery(name = "Client.findLyon", query = "select c from Client c where c.nom LIKE :nom")
+@NamedQuery(name = "Client.byConseillerId", query = "select c from Client c where c.numeroconseiller = :numeroconseiller")
 public class Client {
 
 //	public enum typeClient {

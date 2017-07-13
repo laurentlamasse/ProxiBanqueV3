@@ -4,14 +4,29 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ng="http://angularjs.org">
 
 <body>
 	<body>
-	    <ui:composition>
-			<h1>ENTETE par défaut</h1>
-	    </ui:composition>
-    </body>
+		<ui:composition>
+			<b:navBar brand="ProxiBanque" brandHref="#">
+				<b:navbarLinks pull="right" styleClass="hidden-xs">
+					<b:navLink value="Logout" href="#" action="#{loginBean.deconnecter}"></b:navLink>
+					<b:dropMenu value="Clients">
+						<b:navLink value="Affichage" href="#"></b:navLink>
+						<b:navLink value="Nouveau" href="#"></b:navLink>
+					</b:dropMenu>
+					<b:navLink value="Virement" href="#"></b:navLink>
+					<b:dropMenu value="Conseiller">
+						<b:navLink value="Affichage" href="#"></b:navLink>
+						<b:navLink value="Nouveau" href="#"></b:navLink>
+					</b:dropMenu>
+				</b:navbarLinks>
+			</b:navBar>
+		</ui:composition>
+	</body>
 </body>
 </html>
 

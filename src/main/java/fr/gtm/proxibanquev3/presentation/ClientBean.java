@@ -38,8 +38,13 @@ public class ClientBean implements Serializable {
 	 */
 	@PostConstruct
 	public void init() {
-		listeClient = new ArrayList<Client>();
-		listeClient.add(service.findLyon());
+		int id = 25;
+		listeClient = service.findByIDConseiller(id);
+	}
+	
+	public void delete(int id)
+	{
+		service.delete(id);
 	}
 
 	//ACCESSEURS ET MUTATEURS

@@ -27,8 +27,8 @@ public class ClientService extends GenericService<Client> implements IClientServ
 	}
 	
 	@Override
-	public Client findLyon()
+	public List<Client> findByIDConseiller(int id)
 	{
-		return dao.getClientLyon();
+		return dao.findByIDConseiller(id);
 	}
 }
