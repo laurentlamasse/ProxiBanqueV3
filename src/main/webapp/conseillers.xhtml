@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ng="http://angularjs.org" >
+	
+<h:head>
+<h:outputStylesheet library="css" name="bootstrap.min.css" />
+<h:outputStylesheet library="css" name="styles.css" />
+
+<meta charset="UTF-8" />
+<title>Proxibanque - La banque proche de ses clients</title>
+</h:head>
+<h:body>
+  
+  <div class="ui-g">
+  <div class="ui-g-6">
+	<h1>Liste des conseillers</h1>
+
+	    <b:dataTable id="listeconseillers" value="#{conseillerBean.liste}" var="conseiller">
+	        <b:dataTableColumn value="#{conseiller.id}" />
+	        <b:dataTableColumn value="#{conseiller.nom}" />
+	        <b:dataTableColumn value="#{conseiller.prenom}" />
+	        <b:dataTableColumn value="#{conseiller.login}" />
+	        <b:dataTableColumn value="#{conseiller.mdp}" />
+	        <b:dataTableColumn value="Supprimer conseiller">
+		         <b:commandButton value="Supprimer" icon="delete"  action="#{conseillerBean.supprimer}" >
+		         	<f:setPropertyActionListener target="#{conseillerBean.conseiller}" value="#{conseiller}" />
+		         	<f:ajax execute="@form" render="listeconseillers" />
+	            </b:commandButton> 
+	        </b:dataTableColumn>
+	    </b:dataTable>
+
+	</div>
+	</div>
+
+ 
+</h:body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ng="http://angularjs.org">
+
+<head>
+<meta charset="UTF-8" />
+<title>Proxibanque - La banque proche de ses clients</title>
+<h:outputStylesheet library="css" name="styles.css" />
+</head>
+<h:body>
+  <ui:composition template="template/layout.xhtml">
+   <ui:define name="content">
+
+   
+   
+   	<b:form>
+     		<b:inputText value="#{compteEpargneBean.compteEpargne.numeroClient}" placeholder="Num Client" label="Numéro du client" />
+     		<b:inputText value="#{compteEpargneBean.compteEpargne.solde}" placeholder="Solde" label="Solde du compte" />
+     		<b:inputText value="#{compteEpargneBean.compteEpargne.remuneration}" placeholder="Rémunération" label="Taux de rémunération" />
+     		
+     		<b:commandButton value="Créer" look="primary" action="#{compteEpargneBean.ajouter}"/>
+     	</b:form>
+     	
+     </ui:define>
+   </ui:composition>
+  </h:body>
+   </html>

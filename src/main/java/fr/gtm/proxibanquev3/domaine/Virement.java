@@ -4,7 +4,7 @@ public class Virement {
 
 	// PROPRIETES
 	private int numCompteCred;
-	private int numCompteDeb;
+	private  int numCompteDeb;
 	private float somme;
 
 	// CONSTRUCTEURS
@@ -20,6 +20,13 @@ public class Virement {
 	}
 
 	// ACCESSEURS ET MUTATEURS
+	
+	public float getSomme() {
+		return somme;
+	}
+
+	
+
 	public int getNumCompteCred() {
 		return numCompteCred;
 	}
@@ -34,10 +41,6 @@ public class Virement {
 
 	public void setNumCompteDeb(int numCompteDeb) {
 		this.numCompteDeb = numCompteDeb;
-	}
-
-	public float getSomme() {
-		return somme;
 	}
 
 	public void setSomme(float somme) {

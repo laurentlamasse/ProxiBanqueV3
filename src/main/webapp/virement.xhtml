@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ng="http://angularjs.org" >
+
+<!-- ENTETE -->
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ProxiBanque</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<h:outputStylesheet library="css" name="styles.css" />
+</head>
+
+<!-- CORPS -->
+<h:body>
+
+<ui:composition template="template/layout.xhtml">
+
+			<ui:define name="content">
+
+				<b:form>
+		    <b:inputText value="#{virementBean.virement.numCompteCred}" placeholder="Compte crédité" label="Compte à créditer" />
+     		<b:inputText value="#{virementBean.virement.numCompteDeb}" placeholder="Compte débité" label="Compte à débiter" />
+     		<b:inputText value="#{virementBean.virement.somme}" placeholder="Somme" label="Somme à virer" />
+     		
+     		<b:commandButton value="Virer" look="primary" action="#{virementBean.virer}"/>
+     	</b:form>
+		
+</ui:define>
+</ui:composition>
+</h:body>
+</html>

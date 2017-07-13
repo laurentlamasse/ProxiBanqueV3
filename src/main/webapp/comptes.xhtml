@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ng="http://angularjs.org">
+
+<head>
+<meta charset="UTF-8" />
+<title>Proxibanque - La banque proche de ses clients</title>
+<h:outputStylesheet library="css" name="styles.css" />
+</head>
+<h:body>
+	<ui:composition template="template/layout.xhtml">
+		<ui:define name="content">
+
+
+			<h1>Compte courant du client</h1>
+
+			<b:dataTable id="uncompteCourant"
+				value="#{compteCourantBean.compteCourant}" var="compteCourant">
+				<b:dataTableColumn value="#{compteCourant.numeroCompte}" />
+				<b:dataTableColumn value="#{compteCourant.numeroClient}" />
+				<b:dataTableColumn value="#{compteCourant.solde}" />
+				<b:dataTableColumn value="#{compteCourant.decouvert}" />
+
+				<b:dataTableColumn value="Modifier compte">
+					<h:form>
+						<b:commandButton value="Modifier" icon=""
+							action="modifiercomptecourant">
+							<f:setPropertyActionListener
+								target="#{compteCourantBean.compteCourant}"
+								value="#{compteCourant}" />
+						</b:commandButton>
+					</h:form>
+				</b:dataTableColumn>
+
+				<b:dataTableColumn value="Supprimer compte">
+					<h:form>
+						<b:commandButton value="Supprimer" icon="delete"
+							action="#{compteCourantBean.supprimer}">
+							<f:setPropertyActionListener
+								target="#{compteCourantBean.compteCourant}"
+								value="#{compteCourant}" />
+							<f:ajax execute="@form" render="uncompteCourant" />
+						</b:commandButton>
+					</h:form>
+				</b:dataTableColumn>
+			</b:dataTable>
+
+
+			<div>Compte Epargne du client</div>
+
+			<b:dataTable id="uncompteEpargne"
+				value="#{compteEpargneBean.compteEpargne}" var="compteEpargne">
+				<b:dataTableColumn value="#{compteEpargne.numeroCompte}" />
+				<b:dataTableColumn value="#{compteEpargne.numeroClient}" />
+				<b:dataTableColumn value="#{compteEpargne.solde}" />
+				<b:dataTableColumn value="#{compteEpargne.remuneration}" />
+
+				<b:dataTableColumn value="Modifier compte">
+					<h:form>
+						<b:commandButton value="Modifier" icon=""
+							action="modifiercompteepargne">
+							<f:setPropertyActionListener
+								target="#{compteEpargneBean.compteEpargne}"
+								value="#{compteEpargne}" />
+						</b:commandButton>
+					</h:form>
+				</b:dataTableColumn>
+
+				<b:dataTableColumn value="Supprimer compte">
+					<h:form>
+						<b:commandButton value="Supprimer" icon="delete"
+							action="#{compteCourantBean.supprimer}">
+							<f:setPropertyActionListener
+								target="#{compteCourantBean.compteEpargne}"
+								value="#{compteEpargne}" />
+							<f:ajax execute="@form" render="uncompteEpargne" />
+						</b:commandButton>
+					</h:form>
+				</b:dataTableColumn>
+			</b:dataTable>
+
+
+
+
+
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

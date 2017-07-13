@@ -1,6 +1,7 @@
 package fr.gtm.proxibanquev3.domaine;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
@@ -16,6 +17,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "numeroCompte")
+@NamedQuery(name="CompteCourant.findByNumClient", query="SELECT c FROM CompteCourant c WHERE c.numeroClient = :numeroClient")
 public class CompteCourant extends Compte {
 
 	// PROPRIETES
